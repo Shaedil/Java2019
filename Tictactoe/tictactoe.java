@@ -13,7 +13,7 @@ public class tictactoe {
      public void initializeBoard() {
          for (int i = 0; i < 3; i++) {
              for (int j = 0; j < 3; j++) {
-                 board[i][j] = '-';
+                 board[i][j] = ' ';
              }
          }
      }
@@ -32,7 +32,7 @@ public class tictactoe {
          boolean isFull = true;
          for (int i = 0; i < 3; i++) {
              for (int j = 0; j < 3; j++) {
-                 if (board[i][j] == '-') {
+                 if (board[i][j] == ' ') {
                      isFull = false;
                  }
              }
@@ -62,7 +62,7 @@ public class tictactoe {
          return ((checkRowCol(board[0][0], board[1][1], board[2][2]) == true) || (checkRowCol(board[0][2], board[1][1], board[2][0]) == true));
      }
      private boolean checkRowCol(char c1, char c2, char c3) {
-         return ((c1 != '-') && (c1 == c2) && (c2 == c3));
+         return ((c1 != ' ') && (c1 == c2) && (c2 == c3));
      }
      public void changePlayer() {
          if (currentPlayerMark == 'x') {
@@ -75,7 +75,7 @@ public class tictactoe {
      public boolean placeMark(int row, int col) {
          if ((row >= 0) && (row < 3)) {
              if ((col >= 0) && (col < 3)) {
-                 if (board[row][col] == '-') {
+                 if (board[row][col] == ' ') {
                      board[row][col] = currentPlayerMark;
                      return true;
                  }
@@ -89,9 +89,9 @@ public class tictactoe {
         game.printBoard();
         System.out.println("The turn is now: ");
         while (game.isBoardFull() == false) {
-            System.out.println("enter in the x value" + "\r");
+            System.out.println("enter in the x value");
             int y = read.nextInt();
-            System.out.println("enter in the y value" + "\r");
+            System.out.println("enter in the y value");
             int x = read.nextInt();
             game.placeMark(x,y);
             game.printBoard();
